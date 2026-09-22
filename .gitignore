@@ -1,0 +1,8 @@
+var/
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.sqlite3*
+.env
+.local-keys.json

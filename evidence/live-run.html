@@ -1,0 +1,28 @@
+<!doctype html><html lang='en'><meta charset='utf-8'><meta name='viewport' content='width=device-width'>
+    <title>Workflow execution evidence</title><style>
+    body{font:16px/1.5 system-ui;color:#182a3c;background:#f6f8fb;max-width:1100px;margin:40px auto;padding:24px}
+    h1{line-height:1.2} .label{font-size:13px;font-weight:700;color:#9b3b00} .pass{color:#08705c;font-weight:700}
+    section{background:white;border:1px solid #dbe2ea;border-radius:10px;padding:24px;margin:20px 0}
+    pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f6fa;padding:16px;font-size:14px}
+    td,th{text-align:left;padding:7px;border-bottom:1px solid #dbe2ea} table{width:100%;font-size:13px}
+    </style><body><p class='label'>SELF-BUILT TECHNICAL PROOF — NOT A CLIENT CASE STUDY</p><h1>CRM Missed-Lead Recovery</h1><p class='pass'>PASS · real HTTP + real local model</p><p>Recorded 2026-09-22T06:54:15.982637+00:00</p><section><b>Approval boundary verified</b><p>Effects before approval: 0 → after approval: 1.<br>Worker key rejected for approval (401). Repeated approval rejected (409). No external messages sent.</p><p>Data is synthetic. Reviewer actions in this run are automated test actions. This is execution evidence, not a customer deployment or a buyer paid test.</p></section><section><h2>Structured output</h2><pre>{
+  &quot;analysis&quot;: {
+    &quot;evidence&quot;: &quot;We want to purchase the CRM integration package. Please arrange a quotation.&quot;,
+    &quot;intent&quot;: &quot;purchase&quot;
+  },
+  &quot;consent_to_contact&quot;: true,
+  &quot;created_at&quot;: &quot;2026-09-22T05:24:14.482556+00:00&quot;,
+  &quot;email&quot;: &quot;sam@harbor.example&quot;,
+  &quot;last_human_contact_at&quot;: null,
+  &quot;message&quot;: &quot;We want to purchase the CRM integration package. Please arrange a quotation.&quot;,
+  &quot;opted_out&quot;: false,
+  &quot;owner&quot;: &quot;sales-queue&quot;,
+  &quot;recovery_task&quot;: {
+    &quot;draft_only&quot;: true,
+    &quot;overdue_minutes&quot;: 60.01,
+    &quot;owner&quot;: &quot;sales-queue&quot;,
+    &quot;reply_draft&quot;: &quot;Thank you for your enquiry. A team member will review the details and follow up.&quot;,
+    &quot;type&quot;: &quot;SLA_BREACH&quot;
+  },
+  &quot;sla_minutes&quot;: 30
+}</pre></section><section><h2>HTTP transcript</h2><table><tr><td>GET</td><td>/health</td><td>200</td></tr><tr><td>POST</td><td>/webhooks/intake</td><td>401</td></tr><tr><td>POST</td><td>/webhooks/intake</td><td>202</td></tr><tr><td>POST</td><td>/jobs/e5eeab2c-a6af-49ed-947f-a236a99fd364/run</td><td>200</td></tr><tr><td>POST</td><td>/jobs/e5eeab2c-a6af-49ed-947f-a236a99fd364/decision</td><td>401</td></tr><tr><td>POST</td><td>/jobs/e5eeab2c-a6af-49ed-947f-a236a99fd364/decision</td><td>200</td></tr><tr><td>POST</td><td>/jobs/e5eeab2c-a6af-49ed-947f-a236a99fd364/decision</td><td>409</td></tr><tr><td>POST</td><td>/webhooks/intake</td><td>202</td></tr><tr><td>GET</td><td>/records/synthetic-lead-001</td><td>200</td></tr><tr><td>GET</td><td>/jobs/e5eeab2c-a6af-49ed-947f-a236a99fd364/events</td><td>200</td></tr></table></section><p>Model: qwen2.5-coder:7b-instruct-q4_K_M. The complete JSON file is saved beside this report.</p></body></html>

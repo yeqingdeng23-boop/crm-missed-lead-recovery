@@ -1,0 +1,16 @@
+flowchart TD
+    A[Authenticated webhook] --> B[Validate + idempotency key]
+    B --> C[(SQLite durable queue)]
+    C --> D[Worker claim + 5 minute lease]
+    D --> E[Project eligibility / document parser]
+    E --> F[Local Ollama structured extraction]
+    F --> G[Schema + source grounding + business policy]
+    G --> H[Awaiting approval]
+    H -->|Separate approval key + matching version| I[(Atomic local CRM/register + effect)]
+    H -->|Reject| J[Rejected; zero effects]
+    D -->|Failure| K[Persist retry; exponential backoff]
+    K -->|Attempts below 3| C
+    K -->|Third failure| L[Dead letter; zero effects]
+    D --> M[(Redacted event log)]
+    H --> M
+    I --> M

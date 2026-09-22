@@ -1,0 +1,19 @@
+{
+  "checked_at": "2026-09-22T06:58:58.755430+00:00",
+  "label": "SELF-BUILT TECHNICAL PROOF — NOT A CLIENT CASE STUDY",
+  "unit_tests_passed": 19,
+  "clean_install": "Python 3.12 on Windows; isolated venv without system-site-packages; pinned requirements installed successfully",
+  "live_run": "real HTTP and local Ollama; synthetic data; automated demonstration approval",
+  "source_hashes_match": true,
+  "screenshot_visually_checked": true,
+  "unit_test_xml_redaction": "Only machine hostname removed; test results and timings unchanged",
+  "known_warnings": [
+    "Starlette TestClient httpx adapter deprecation",
+    "anyio BlockingPortal alias deprecation"
+  ],
+  "public_repository_verified": false,
+  "ci_run_verified": false,
+  "new_cash_spend_usd": 0,
+  "customer_deployment": false,
+  "ai_assistance": "Built with Codex assistance; not a claim of unaided coding history"
+}

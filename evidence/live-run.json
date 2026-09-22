@@ -1,0 +1,179 @@
+{
+  "label": "SELF-BUILT TECHNICAL PROOF — NOT A CLIENT CASE STUDY",
+  "project": "CRM Missed-Lead Recovery",
+  "verified_at": "2026-09-22T06:54:15.982637+00:00",
+  "transport": "real loopback HTTP",
+  "model_execution": "real local Ollama inference; no mock",
+  "source_sha256": {
+    "automation\\__init__.py": "a8bb52b0a375d4b5623af914c5205aea403aef3c6e841a218f32f48bb62f247d",
+    "automation\\api.py": "06aaee871c912e314544f475741e2c4e439a2322912b56ca74e669d346fdd0fe",
+    "automation\\engine.py": "687d0a03552a45172b0ff0cf3e8c798922e6a748c49f00168b3b7d3e70d2ba0d",
+    "automation\\fixtures.py": "52fb0fb55e6db66fa257dc6abed885c171543f58a8c2bffe5a8dc4566eeb77b6",
+    "automation\\llm.py": "6c317cd6a997aa5f8d3479199a5f60d96931949919db87b27f8d39cc40b8ec46",
+    "automation\\worker.py": "d3b4a2fc5921f8a1b63cbdbedbcf48580fb2cb9a0d3347b24e0c82a68d924551",
+    "automation\\workflow.py": "a0edf1d9e58c990b215efe5dc0eac6061640b6968ea7a8f9d961a9a7e10b3ccf"
+  },
+  "input": "synthetic fixture only",
+  "reviewer": "automated demo action, not a real buyer/human approval",
+  "health": {
+    "ok": true,
+    "project": "CRM Missed-Lead Recovery",
+    "sink": "local synthetic SQLite",
+    "auto_send": false
+  },
+  "steps": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/webhooks/intake",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/webhooks/intake",
+      "status": 202
+    },
+    {
+      "method": "POST",
+      "path": "/jobs/e5eeab2c-a6af-49ed-947f-a236a99fd364/run",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/jobs/e5eeab2c-a6af-49ed-947f-a236a99fd364/decision",
+      "status": 401
+    },
+    {
+      "method": "POST",
+      "path": "/jobs/e5eeab2c-a6af-49ed-947f-a236a99fd364/decision",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/jobs/e5eeab2c-a6af-49ed-947f-a236a99fd364/decision",
+      "status": 409
+    },
+    {
+      "method": "POST",
+      "path": "/webhooks/intake",
+      "status": 202
+    },
+    {
+      "method": "GET",
+      "path": "/records/synthetic-lead-001",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/jobs/e5eeab2c-a6af-49ed-947f-a236a99fd364/events",
+      "status": 200
+    }
+  ],
+  "output": {
+    "action": "local_crm_recovery_task",
+    "approval_required": true,
+    "expected_record_version": 1,
+    "external_emails_sent": 0,
+    "inference": {
+      "created_at": "2026-09-22T06:54:15.9388791Z",
+      "eval_count": 30,
+      "model": "qwen2.5-coder:7b-instruct-q4_K_M",
+      "provider": "ollama-local",
+      "total_duration_ns": 873137300
+    },
+    "record": {
+      "analysis": {
+        "evidence": "We want to purchase the CRM integration package. Please arrange a quotation.",
+        "intent": "purchase"
+      },
+      "consent_to_contact": true,
+      "created_at": "2026-09-22T05:24:14.482556+00:00",
+      "email": "sam@harbor.example",
+      "last_human_contact_at": null,
+      "message": "We want to purchase the CRM integration package. Please arrange a quotation.",
+      "opted_out": false,
+      "owner": "sales-queue",
+      "recovery_task": {
+        "draft_only": true,
+        "overdue_minutes": 60.01,
+        "owner": "sales-queue",
+        "reply_draft": "Thank you for your enquiry. A team member will review the details and follow up.",
+        "type": "SLA_BREACH"
+      },
+      "sla_minutes": 30
+    },
+    "record_key": "synthetic-lead-001",
+    "requires_unhandled": true
+  },
+  "record_after_approval": {
+    "data": {
+      "analysis": {
+        "evidence": "We want to purchase the CRM integration package. Please arrange a quotation.",
+        "intent": "purchase"
+      },
+      "consent_to_contact": true,
+      "created_at": "2026-09-22T05:24:14.482556+00:00",
+      "email": "sam@harbor.example",
+      "last_human_contact_at": null,
+      "message": "We want to purchase the CRM integration package. Please arrange a quotation.",
+      "opted_out": false,
+      "owner": "sales-queue",
+      "recovery_task": {
+        "draft_only": true,
+        "overdue_minutes": 60.01,
+        "owner": "sales-queue",
+        "reply_draft": "Thank you for your enquiry. A team member will review the details and follow up.",
+        "type": "SLA_BREACH"
+      },
+      "sla_minutes": 30
+    },
+    "version": 2
+  },
+  "effects_before_approval": 0,
+  "effects_after_approval": 1,
+  "events": [
+    {
+      "seq": 1,
+      "job_id": "e5eeab2c-a6af-49ed-947f-a236a99fd364",
+      "at": 1790060055.048863,
+      "event": "accepted",
+      "details": {}
+    },
+    {
+      "seq": 2,
+      "job_id": "e5eeab2c-a6af-49ed-947f-a236a99fd364",
+      "at": 1790060055.0554934,
+      "event": "processing_started",
+      "details": {
+        "attempt": 1,
+        "recovered_lease": false
+      }
+    },
+    {
+      "seq": 3,
+      "job_id": "e5eeab2c-a6af-49ed-947f-a236a99fd364",
+      "at": 1790060055.94198,
+      "event": "awaiting_approval",
+      "details": {
+        "attempt": 1,
+        "error_code": null
+      }
+    },
+    {
+      "seq": 4,
+      "job_id": "e5eeab2c-a6af-49ed-947f-a236a99fd364",
+      "at": 1790060055.9555547,
+      "event": "approved",
+      "details": {
+        "reviewer": "automated-demo-reviewer"
+      }
+    }
+  ],
+  "external_messages_sent": 0,
+  "cloud_api_cost_usd": 0,
+  "result": "passed"
+}
